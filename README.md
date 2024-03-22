@@ -73,6 +73,7 @@ docker exec app php artisan key:generate
  docker exec app_d3t php artisan migrate
 ```
 
+
 ```
 docker exec app_d3t php artisan db:seed --class=ScheduleTableSeeder --force
 ```
