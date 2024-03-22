@@ -2,7 +2,7 @@
 
 <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
 
-![](pxn.gif)
+![](demo_long.gif)
 
 ## Descrição do projeto
 
@@ -18,7 +18,7 @@
 O usuário pode adicionar novos contatos com os seguintes campos:
 Nome do contato (campo obrigatório)
 Endereço do contato (campo obrigatório)
-email  (campo obrigatório)
+email (campo obrigatório)
 telefone (campo obrigatório)
 
 :heavy_check_mark: Listagem de Contatos:
@@ -53,11 +53,11 @@ cp .env.example .env
 ```
 
 ```
-docker compose up -d --build 
+docker compose up -d --build
 ```
 
 ```
-docker compose exec app composer install  
+docker compose exec app composer install
 ```
 
 ```
@@ -66,7 +66,6 @@ docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
 
 docker exec app php artisan key:generate
 ```
-
 
 ## Iniciando banco de dados
 
@@ -83,8 +82,7 @@ docker exec app_d3t php artisan db:seed --class=ScheduleTableSeeder --force
 ### schedule:
 
 | id  | name | andress | email | telefone |
-| --- | ---- | ----------- | ----- | -------- |
-
+| --- | ---- | ------- | ----- | -------- |
 
 ### para instalar as depedencias do npm
 
@@ -95,9 +93,7 @@ npm run dev
 
 acesse em : http://localhost
 
-
 Copyright :copyright: 2023 - teste-d3t
-
 
 ## INSTRUCOES
 
