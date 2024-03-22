@@ -61,7 +61,7 @@ docker exec app_d3t composer install
 ```
 
 ```
-docker compose exec app_d3t chmod 777 -R ./storage ./bootstrap/cache
+docker exec app_d3t chmod 777 -R ./storage ./bootstrap/cache
 ...
 
 docker exec app_d3t php artisan key:generate
