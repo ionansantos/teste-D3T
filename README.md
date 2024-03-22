@@ -7,7 +7,7 @@
 ## Descrição do projeto
 
 <p align="justify">
-  Este projeto é uma aplicação web desenvolvida com o framework Laravel e a biblioteca Vue.js , O sistema tem 
+  Este projeto é uma aplicação web desenvolvida com o framework Laravel e Vue.js , O sistema tem 
    como objetivo permitir o cadastro, listagem, edição e exclusão de Contatos, além de fornecer uma interface de usuário simples e 
    responsiva.
 </p>
