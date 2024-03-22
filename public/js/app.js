@@ -16156,8 +16156,17 @@ __webpack_require__.r(__webpack_exports__);
             window.location.reload();
           }, 2000);
         })["catch"](function (error) {
-          erroInput.value = error.response.data.message;
-          toaster.error("ocorreu um erro ao atualizar o contato");
+          if (error.response.status === 422) {
+            var errors = error.response.data.errors;
+            Object.keys(errors).forEach(function (key) {
+              var errorMessages = errors[key];
+              errorMessages.forEach(function (message) {
+                toaster.error(message);
+              });
+            });
+          } else {
+            toaster.error("ocorreu um erro ao atualizar o contato");
+          }
         });
       } else {
         _plugin_axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/schedule/create", scheduleData, {}).then(function (response) {
@@ -16167,8 +16176,17 @@ __webpack_require__.r(__webpack_exports__);
             window.location.reload();
           }, 2000);
         })["catch"](function (error) {
-          erroInput.value = error.response.data.errors;
-          toaster.error("Ops! Erro ao Cadastrar contato");
+          if (error.response.status === 422) {
+            var errors = error.response.data.errors;
+            Object.keys(errors).forEach(function (key) {
+              var errorMessages = errors[key];
+              errorMessages.forEach(function (message) {
+                toaster.error(message);
+              });
+            });
+          } else {
+            toaster.error('Ops! Ocorreu um erro ao cadastrar o contato');
+          }
         });
       }
     };

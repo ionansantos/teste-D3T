@@ -109,14 +109,22 @@ export default defineComponent({
                 axiosApi.post("/schedule/update/" + scheduleData.id, scheduleData)
                     .then(response => {
                         toaster.success('contato atualizado com sucesso!');
-
                         setTimeout(() => {
                             toaster.clear();
                             window.location.reload();
                         }, 2000);
                     }).catch(error => {
-                        erroInput.value = error.response.data.message
-                        toaster.error(`ocorreu um erro ao atualizar o contato`);
+                        if (error.response.status === 422) {
+                            const errors = error.response.data.errors;
+                            Object.keys(errors).forEach(key => {
+                                const errorMessages = errors[key];
+                                errorMessages.forEach(message => {
+                                    toaster.error(message);
+                                });
+                            });
+                        } else {
+                            toaster.error(`ocorreu um erro ao atualizar o contato`);
+                        }
                     });
             } else {
                 axiosApi.post("/schedule/create", scheduleData, {})
@@ -128,8 +136,17 @@ export default defineComponent({
                             window.location.reload();
                         }, 2000);
                     }).catch(error => {
-                        erroInput.value = error.response.data.errors
-                        toaster.error(`Ops! Erro ao Cadastrar contato`);
+                        if (error.response.status === 422) {
+                            const errors = error.response.data.errors;
+                            Object.keys(errors).forEach(key => {
+                                const errorMessages = errors[key];
+                                errorMessages.forEach(message => {
+                                    toaster.error(message);
+                                });
+                            });
+                        } else {
+                            toaster.error('Ops! Ocorreu um erro ao cadastrar o contato');
+                        }
                     });
             }
         }
