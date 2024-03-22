@@ -57,7 +57,7 @@ docker compose up -d --build
 ```
 
 ```
-docker compose exec app_d3t composer install
+docker exec app_d3t composer install
 ```
 
 ```
