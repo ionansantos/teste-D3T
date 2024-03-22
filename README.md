@@ -57,14 +57,14 @@ docker compose up -d --build
 ```
 
 ```
-docker compose exec app composer install
+docker compose exec app_d3t composer install
 ```
 
 ```
-docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
+docker compose exec app_d3t chmod 777 -R ./storage ./bootstrap/cache
 ...
 
-docker exec app php artisan key:generate
+docker exec app_d3t php artisan key:generate
 ```
 
 ## Iniciando banco de dados
