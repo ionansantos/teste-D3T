@@ -95,8 +95,3 @@ acesse em : http://localhost
 
 Copyright :copyright: 2023 - teste-d3t
 
-## INSTRUCOES
-
-sudo docker exec app_d3t php artisan migrate
-
-sudo docker exec app_d3t php artisan db:seed --class=ScheduleTableSeeder --force
