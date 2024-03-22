@@ -1,67 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Teste-D3T</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
+
+![](pxn.gif)
+
+## Descrição do projeto
+
+<p align="justify">
+  Este projeto é uma aplicação web desenvolvida com o framework Laravel e a biblioteca Vue.js , O sistema tem 
+   como objetivo permitir o cadastro, listagem, edição e exclusão de Contatos, além de fornecer uma interface de usuário simples e 
+   responsiva.
 </p>
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+:heavy_check_mark: Cadastro de Contatos:
+O usuário pode adicionar novos contatos com os seguintes campos:
+Nome do contato (campo obrigatório)
+Endereço do contato (campo obrigatório)
+email  (campo obrigatório)
+telefone (campo obrigatório)
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+:heavy_check_mark: Listagem de Contatos:
+Todos os contatos cadastrados são exibidos na página inicial.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+:heavy_check_mark: Edição de Contatos:
+O usuário pode editar os dados de um contato existente.
 
-## Learning Laravel
+:heavy_check_mark: Exclusão de Contatos:
+Os contatos existentes podem ser removidos do banco de dados.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Pré-requisitos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+:warning: [Docker](https://www.docker.com/)
 
-## Laravel Sponsors
+...
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Como rodar a aplicação :arrow_forward:
 
-### Premium Partners
+No terminal, clone o projeto:
 
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
+```
+git clone https://github.com/ionansantos/teste-D3T
+```
 
-## Contributing
+```
+cd teste-D3T
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+cp .env.example .env
+```
 
-## Code of Conduct
+```
+docker compose up -d --build 
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+docker compose exec app composer install  
+```
 
-## Security Vulnerabilities
+```
+docker compose exec app chmod 777 -R ./storage ./bootstrap/cache
+...
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+docker exec app php artisan key:generate
+```
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Iniciando banco de dados
+
+```
+ docker exec app_d3t php artisan migrate
+```
+
+```
+docker exec app_d3t php artisan db:seed --class=ScheduleTableSeeder --force
+```
+
+## os dados da aplicação são salvos em duas tabelas
+
+### schedule:
+
+| id  | name | andress | email | telefone |
+| --- | ---- | ----------- | ----- | -------- |
+
+
+### para instalar as depedencias do npm
+
+```
+npm install
+npm run dev
+```
+
+acesse em : http://localhost
+
+
+Copyright :copyright: 2023 - teste-d3t
+
 
 ## INSTRUCOES
 
